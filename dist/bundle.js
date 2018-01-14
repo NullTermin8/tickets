@@ -102,6 +102,14 @@ $(function () {
     console.log("print");
     (0, _qr_creator.createQRCode)(document.getElementById('fromID').value, document.getElementById('cost').value, document.getElementById('eventID').value, document.getElementById('TTL').value);
   });
+  $('#generateQR').click(function () {
+    console.log("click");
+    showQRIntro();
+  });
+  $('#generateQR').on('change', function () {
+    console.log("change");
+    openQRCamera(this);
+  });
 
   if ($('body').hasClass('signupPage')) {
     signupButton.onclick = function (e) {
@@ -122,10 +130,47 @@ $(function () {
         console.log(err);
       });
     };
-  } // reloadUserData for events page
+  }
 
+  if ($('body').hasClass('landing')) {
+    // if(JSON.parse(document.cookie))
+    var details = JSON.parse(document.cookie);
+    var attending = [];
+    var organizing = [];
+    lib.lasfter.db.reload_user_data(details.token, details.user.id).then(function (events) {
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
 
-  if ($('body').hasClass('landing')) {// call reloadUserData
+      try {
+        for (var _iterator = events[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var i = _step.value;
+
+          if (events[i].user_id == details.user.id) {
+            attending.push(events[i]);
+          } else {
+            organizing.push(events[i]);
+          }
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return != null) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+    }).then(function () {
+      return console.log(attending);
+    }).then(function () {
+      return console.log(organizing);
+    });
   }
 });
 
@@ -174,9 +219,7 @@ function createQRCode(fromID, cost, eventID, TTL) {
   console.log("hello");
   var obj = '\{\"fromID\":\"' + fromID + '\",' + '\"cost\":\"' + cost + '\",' + '\"eventID\":\"' + eventID + '\",' + '\"TTL:\"' + TTL + '\"\}';
   var url = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + obj;
-  console.log("url=" + url);
   document.getElementById('myImage').src = url;
-  console.log(document.getElementById('myImage'));
 }
 
 /***/ }),

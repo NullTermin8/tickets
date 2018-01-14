@@ -22,6 +22,17 @@ $(function(){
 		createQRCode(document.getElementById('fromID').value,document.getElementById('cost').value,document.getElementById('eventID').value,document.getElementById('TTL').value);
 	});
 
+	$('#generateQR').click(function() {
+		console.log("click");
+		showQRIntro();
+	});
+
+	$('#generateQR').on('change', function() {
+		console.log("change");
+		openQRCamera(this);
+	});
+
+
 	if($('body').hasClass('signupPage')){
 		signupButton.onclick = function(e) {
       e.preventDefault();
@@ -54,7 +65,19 @@ $(function(){
 
 	// reloadUserData for events page
 	if($('body').hasClass('landing')){
-		// call reloadUserData
+		// if(JSON.parse(document.cookie))
+		var details = JSON.parse(document.cookie);
+		var attending = [];
+		var organizing = [];
+		lib.lasfter.db.reload_user_data(details.token, details.user.id)
+			.then(function(events) { for (var i of events){
+				if (events[i].user_id == details.user.id) {
+					attending.push(events[i]);
+				} else {
+					organizing.push(events[i]);
+				}}})
+			.then(() => console.log(attending))
+			.then(() => console.log(organizing));
 	}
 
 
