@@ -65,28 +65,22 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
+$(function () {
+  if ($('body').is('.loginPage')) {
+    console.log("hello");
+    var loginMenu = document.getElementById('loginMenu');
+    loginForm = new FormData(loginMenu);
 
+    loginButton.onclick = function () {
+      loginForm.append(loginMenu); // console.log(loginMenu);
 
-var _mod = __webpack_require__(1);
+      console.log(loginForm);
+    }; //call specific functions
 
-(0, _mod.Thing)();
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
+  }
 });
-exports.Thing = Thing;
-
-function Thing() {}
 
 /***/ })
 /******/ ]);
