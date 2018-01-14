@@ -102,6 +102,14 @@ $(function () {
     console.log("print");
     (0, _qr_creator.createQRCode)(document.getElementById('fromID').value, document.getElementById('cost').value, document.getElementById('eventID').value, document.getElementById('TTL').value);
   });
+  $('#generateQR').click(function () {
+    console.log("click");
+    showQRIntro();
+  });
+  $('#generateQR').on('change', function () {
+    console.log("change");
+    openQRCamera(this);
+  });
 
   if ($('body').hasClass('signupPage')) {
     signupButton.onclick = function (e) {
@@ -173,10 +181,8 @@ function createQRCode(fromID, cost, eventID, TTL) {
 
   console.log("hello");
   var obj = '\{\"fromID\":\"' + fromID + '\",' + '\"cost\":\"' + cost + '\",' + '\"eventID\":\"' + eventID + '\",' + '\"TTL:\"' + TTL + '\"\}';
-  var url = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + obj;
-  console.log("url=" + url);
+  url = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + obj;
   document.getElementById('myImage').src = url;
-  console.log(document.getElementById('myImage'));
 }
 
 /***/ }),
