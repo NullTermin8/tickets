@@ -1,0 +1,23 @@
+{
+  "name": "tickets",
+  "version": "1.0.0",
+  "description": "Digital event tickets for raffles and prizes",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NullTermin8/tickets.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NullTermin8/tickets/issues"
+  },
+  "homepage": "https://github.com/NullTermin8/tickets#readme",
+  "devDependencies": {
+    "webpack": "^3.10.0"
+  }
+}
