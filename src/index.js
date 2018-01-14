@@ -1,13 +1,15 @@
+let STATE = {};
+
 $(function(){
 	if($('body').hasClass('loginPage')){
-		loginButton.onclick = function() {
-			var loginMenu = document.getElementById('loginMenu');
-			loginForm = new FormData(loginMenu);
+		loginButton.onclick = function(e) {
+      e.preventDefault();
+			const loginForm = document.getElementById('loginMenu');
 
-			for (var value of loginForm.values()) {
-				console.log(value);
-			}
-			// console.log(loginForm.getAll('email'));
+      lib.lasfter.db['@dev'].login({email: loginForm.email.value, password: loginForm.password.value})
+        .then(data => STATE = data)
+        .then(() => window.history.pushState(STATE, "dashboard", "event_dashboard.html"))
+        .catch(err => console.log(err));
 		} 
 	}
 });

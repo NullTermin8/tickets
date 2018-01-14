@@ -67,35 +67,24 @@
 /* 0 */
 /***/ (function(module, exports) {
 
+var STATE = {
+  user: null,
+  token: ""
+};
 $(function () {
   if ($('body').hasClass('loginPage')) {
-    loginButton.onclick = function () {
-      var loginMenu = document.getElementById('loginMenu');
-      loginForm = new FormData(loginMenu);
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = loginForm.values()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var value = _step.value;
-          console.log(value);
-        } // console.log(loginForm.getAll('email'));
-
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return != null) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
-      }
+    loginButton.onclick = function (e) {
+      e.preventDefault();
+      var loginForm = document.getElementById('loginMenu');
+      console.log(loginForm.email.value, loginForm.password.value);
+      lib.lasfter.db['@dev'].login({
+        email: loginForm.email.value,
+        password: loginForm.password.value
+      }).then(function (data) {
+        return STATE = data;
+      }).catch(function (err) {
+        return console.log(err);
+      });
     };
   }
 });
