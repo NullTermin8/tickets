@@ -32,7 +32,7 @@ function createQRCode(fromID, cost , eventID, TTL){
        +'\"cost\":\"'+cost+'\",'
        +'\"eventID\":\"'+eventID+'\",'
        +'\"TTL:\"'+TTL+'\"\}';
-  url="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+obj
+  var url="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+obj
   document.getElementById('myImage').src=url;
 }
 
