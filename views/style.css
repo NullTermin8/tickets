@@ -30,3 +30,8 @@ h1 a:hover {
 .signup {
 	margin-bottom: 1rem;
 }
+
+#scanLabel {
+	font-size: 40px;
+	font-weight: 500;
+}
