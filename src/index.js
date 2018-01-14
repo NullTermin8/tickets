@@ -1,4 +1,7 @@
 let STATE = {};
+import { createQRCode } from './qrCodeCreator/qr_creator.js';
+import * as qrPacked from './qrCodeReader/qr_packed.js';
+import * as qrCodeReader from './qrCodeReader/qrCodeReader.js';
 
 $(function(){
 	if($('body').hasClass('loginPage')){
@@ -20,7 +23,7 @@ $(function(){
 
       lib.lasfter.db.signup({email: signupForm.email.value, password: signupForm.password.value})
         .then(data => STATE = data)
-        .then(() => window.location = "login.html")
+        .then(() => window.location = "landing.html")
         .catch(err => console.log(err));
 		} 
 	}
