@@ -1,12 +1,32 @@
 body {
-  /* background-color: #A6D0DB; */
+	/* background-color: #A6D0DB; */
 }
 
-.homebuttons {
-  width: 49%;
-  height: 50px;
+h1 a {
+	text-decoration: none;
+	color: #333;
 }
 
-.indexFooter {
-  margin-top: 20px;
+h1 a:hover {
+	text-decoration: none;
+	color: #555;
+}
+
+.wrap {
+	margin-bottom: 4rem;
+}
+
+.footer {
+	margin-top: 2rem;
+	background: #A6D0DB;
+	padding-top: 0.5rem;
+}
+
+.footer a {
+	color: #96903B;
+	font-weight: 600;
+}
+
+.signup {
+	margin-bottom: 1rem;
 }
