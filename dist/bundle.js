@@ -98,6 +98,11 @@ $(function () {
     };
   }
 
+  $('#generateQR').click(function () {
+    console.log("print");
+    (0, _qr_creator.createQRCode)(document.getElementById('fromID').value, document.getElementById('cost').value, document.getElementById('eventID').value, document.getElementById('TTL').value);
+  });
+
   if ($('body').hasClass('signupPage')) {
     signupButton.onclick = function (e) {
       e.preventDefault();
@@ -126,7 +131,15 @@ $(function () {
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createQRCode = createQRCode;
 
 function createQRCode(fromID, cost, eventID, TTL) {
   fromID = fromID.trim();
