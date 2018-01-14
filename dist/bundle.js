@@ -102,6 +102,14 @@ $(function () {
     console.log("print");
     (0, _qr_creator.createQRCode)(document.getElementById('fromID').value, document.getElementById('cost').value, document.getElementById('eventID').value, document.getElementById('TTL').value);
   });
+  $('#generateQR').click(function () {
+    console.log("click");
+    showQRIntro();
+  });
+  $('#generateQR').on('change', function () {
+    console.log("change");
+    openQRCamera(this);
+  });
 
   if ($('body').hasClass('signupPage')) {
     signupButton.onclick = function (e) {
