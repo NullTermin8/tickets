@@ -8,32 +8,29 @@
 	<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style.css" />
 </head>
-<body>
+<body class="event_join">
 <div class="header container-fluid">
-    <h1 class="display-1 text-center">Available Events?</h1>
+    <h1 class="display-1 text-center"><a href="landing.html">Join an Event</a></h1>
 </div>
 
 <!-- TO-DO : List events? Scan QR codes to join event? Enter event id? How are we doing this? -->
 <div class="wrap container content">
 	<div class="card">
 		<div class="card-body">
-		
-		<h2>Why use Event Points?</h2>
-		<h3>If you're attending an event</h3>
-		<ul>
-			<li>Scan codes to get points</li>
-			<li>Transfer points to and from your friends (if you want)</li>
-			<li>Redeem your points for prizes</li>
-		</ul>
-
-		<h3>If you're organizing an event</h3>
-		<ul>
-			<li>Increase engagement by incentivizing interactions</li>
-			<li>Keep track of how points are moving around</li>
-			<li></li>
-		</ul>
-
-		<p>Increase engagement with localized digital currency <em>(points)</em>, by letting your guests scan QR codes. Super simple: scan codes, get points. You decide how your guests should redeem their points, and you're in control</p>
+			<h2 class="text-center">Scan a code</h2>
+			<form>
+				<div class="form-group">
+					<input class="form-control-file" type="file" accept="image/*" capture="camera" id="scanCode" />
+				</div>
+			</form>
+			<hr />
+			<h2 class="text-center">Input a code</h2>
+			<div class="input-group">
+			<input type="text" class="form-control" placeholder="Event Code" aria-label="The event code you were given" aria-describedby="basic-addon2">
+				<div class="input-group-append">
+					<button class="btn btn-primary" type="button" id="inputCode">Go</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

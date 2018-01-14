@@ -67,21 +67,36 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-var STATE = {
-  user: null,
-  token: ""
-};
+var STATE = {};
 $(function () {
   if ($('body').hasClass('loginPage')) {
     loginButton.onclick = function (e) {
       e.preventDefault();
       var loginForm = document.getElementById('loginMenu');
-      console.log(loginForm.email.value, loginForm.password.value);
       lib.lasfter.db['@dev'].login({
         email: loginForm.email.value,
         password: loginForm.password.value
       }).then(function (data) {
         return STATE = data;
+      }).then(function () {
+        return window.location = "landing.html";
+      }).catch(function (err) {
+        return console.log(err);
+      });
+    };
+  }
+
+  if ($('body').hasClass('signupPage')) {
+    signupButton.onclick = function (e) {
+      e.preventDefault();
+      var signupForm = document.getElementById('signupMenu');
+      lib.lasfter.db['@dev'].signup({
+        email: signupForm.email.value,
+        password: signupForm.password.value
+      }).then(function (data) {
+        return STATE = data;
+      }).then(function () {
+        return window.location = "login.html";
       }).catch(function (err) {
         return console.log(err);
       });
