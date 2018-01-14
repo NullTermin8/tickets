@@ -16,6 +16,11 @@ $(function(){
         .catch(err => console.log(err));
 		} 
 	}
+	
+	$('#generateQR').click(function() {
+		console.log("print");
+		createQRCode(document.getElementById('fromID').value,document.getElementById('cost').value,document.getElementById('eventID').value,document.getElementById('TTL').value);
+	});
 
 	if($('body').hasClass('signupPage')){
 		signupButton.onclick = function(e) {

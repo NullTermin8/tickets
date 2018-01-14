@@ -15,7 +15,7 @@
 		<h1 class="display-1 text-center">< USE - EVENT NAME></h1>
 	</div>
 
-	<!-- Nav column will in some way (ideally dynamically) allow for 
+	<!-- Nav column will in some way (ideally dynamically) allow for
 	switching of event view between multiple functions available for
 	participants -->
 	<!-- <ul class="nav flex-column">
@@ -36,17 +36,35 @@
 	<div class="row">
 	  <div class="col-4">
 		<div class="list-group" id="list-tab" role="tablist">
-		  <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Event Info</a>
-		  <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Balance</a>
-		  <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">QR Scan</a>
-		  <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Transfer</a>
+		  <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home"><i class="fas fa-info-circle"></i> Event Info</a>
+		  <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile"><i class="fas fa-balance-scale"></i> Balance</a>
+		  <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages"><i class="fas fa-qrcode"></i> QR Scan</a>
+		  <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings"><i class="fas fa-exchange-alt"></i> Transfer</a>
 		</div>
 	  </div>
 	  <div class="col-8">
 		<div class="tab-content" id="nav-tabContent">
-		  <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...</div>
-		  <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
-		  <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+		  <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+		  	<p>
+				This is a really awesome event so far everyone! I'm proud of all your participation, and good luck for the remainder. Reminder that  the triple point bonus will be available tomorrow!
+			
+				Don't forget about the team building lunch today.
+			</p>
+		  </div>
+		  <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+		  	<p> Available Balance: </p>
+		  </div>
+			<div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+							The ID of the person giving the points: <input type="text" onfocus="this.value=''" id="fromID" value="Enter Number Here"><br><br>
+				  The points that the QR code will give to the redeemer: <input onfocus="this.value=''" type="text'" id="cost" value="Enter Number Here"><br><br>
+				  The ID of the event that the points will be given during: <input onfocus="this.value=''" type="text" id="eventID" value="Enter ID of Event Here"><br><br>
+				  The duration of time when the QR code will be usable: <input onfocus="this.value=''" type="text" id="TTL" value="Enter Hours Here"> hours<br>
+				  <div id="errorMessage">
+				  </div>
+			  <br>
+			  <button id="generateQR">Generate QR Code</button><br>
+			  <img id="myImage" style="width:300px">
+		  </div>
 		  <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
 		</div>
 	  </div>
@@ -71,21 +89,21 @@
 		</div>
 	</div>-->
 
-	
+
 	<div class="footer text-center fixed-bottom">
 		<p>Made by <a href="https://github.com/NullTermin8">Null Termin8</a> at <a href="https://www.nwhacks.io/">NWHacks 2018</a></p>
 	</div>
 	<!-- #####scripts##### -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
-	<!-- tickets backend -->	
+	<!-- tickets backend -->
 	<script src = "../dist/bundle.js"></script>
-	<!--<script> 
+	<!--<script>
 		const buttons = $('.btn');
 		buttons.forEach(e => e.hide());
 		buttons[0].show();
-		$('.btn').click(function() 
+		$('.btn').click(function()
 		{
 			$('#content div').hide();
 			var target = '#' + $(this).data('target');
