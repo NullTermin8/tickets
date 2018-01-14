@@ -1,3 +1,7 @@
+import { createQRCode } from './qrCodeCreator/qr_creator.js';
+import * as qrPacked from './qrCodeReader/qr_packed.js';
+import * as qrCodeReader from './qrCodeReader/qrCodeReader.js';
+
 $(function(){
 	if($('body').hasClass('loginPage')){
 		loginButton.onclick = function(e) {
@@ -22,7 +26,7 @@ $(function(){
       $(e.target).css("cursor", "wait");
       lib.lasfter.db.signup({email: signupForm.email.value, password: signupForm.password.value})
         .then(data => document.cookie = JSON.stringify(data))
-        .then(() => window.location = "login.html")
+        .then(() => window.location = "landing.html")
         .catch(err => {
           $("body").css("cursor", "default");
           $(e.target).css("cursor", "default");
