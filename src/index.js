@@ -6,5 +6,3 @@ loginButton.onclick = function() {
 	// console.log(loginMenu);
 	console.log(loginForm);
 }
-
-console.log(window.location.host);

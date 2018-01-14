@@ -76,7 +76,5 @@ loginButton.onclick = function () {
   console.log(loginForm);
 };
 
-console.log(window.location.host);
-
 /***/ })
 /******/ ]);
