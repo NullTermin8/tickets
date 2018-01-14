@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Event Points - Event View</title>
+	<title>Event Points - Event Create</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 	<link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
@@ -12,27 +12,27 @@
 <body>
 
 	<div class="header container-fluid">
-		<h1 class="display-1 text-center">< USE - EVENT NAME></h1>
+		<h1 class="display-1 text-center">Create New Event</h1>
 	</div>
 
-	<!-- Nav column will in some way (ideally dynamically) allow for 
-	switching of event view between multiple functions available for
-	participants -->
-	<ul class="nav flex-column">
-		  <li class="nav-item">
-			<a class="nav-link active" href="#">EVENT INFO ICON</a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" href="#">BALANCE ICON $</a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link" href="#">QR SCAN ICON</a>
-		  </li>
-		  <li class="nav-item">
-			<a class="nav-link disabled" href="#">TRANSFER ICON</a>
-		  </li>
-	</ul>
-	
+	<form>
+		  <div class="form-group">
+				<label for="inputName">Name</label>
+				<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Event Name">
+				<small id="emailHelp" class="form-text text-muted">Give your event a snappy name!</small>
+		  </div>
+		  <div class="form-group">
+				<label for="inputDescription">Event Description</label>
+				<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Event Description">
+		  </div>
+		  <div class="form-check">
+				<input type="checkbox" class="form-check-input" id="checkAgreement">
+				<label class="form-check-label" for="exampleCheck1">I have read the event organizer agreement</label>
+		  </div>
+		  <button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+
+
 	<div class="footer text-center fixed-bottom">
 		<p>Made by <a href="https://github.com/NullTermin8">Null Termin8</a> at <a href="https://www.nwhacks.io/">NWHacks 2018</a></p>
 	</div>
