@@ -173,8 +173,10 @@ function createQRCode(fromID, cost, eventID, TTL) {
 
   console.log("hello");
   var obj = '\{\"fromID\":\"' + fromID + '\",' + '\"cost\":\"' + cost + '\",' + '\"eventID\":\"' + eventID + '\",' + '\"TTL:\"' + TTL + '\"\}';
-  url = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + obj;
+  var url = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + obj;
+  console.log("url=" + url);
   document.getElementById('myImage').src = url;
+  console.log(document.getElementById('myImage'));
 }
 
 /***/ }),
