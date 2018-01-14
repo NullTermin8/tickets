@@ -1,4 +1,3 @@
-let STATE = {};
 import { createQRCode } from './qrCodeCreator/qr_creator.js';
 import * as qrPacked from './qrCodeReader/qr_packed.js';
 import * as qrCodeReader from './qrCodeReader/qrCodeReader.js';
@@ -9,8 +8,10 @@ $(function(){
       e.preventDefault();
 			const loginForm = document.getElementById('loginMenu');
 
+      $("body").css("cursor", "wait");
+      $(e.target).css("cursor", "wait");
       lib.lasfter.db.login({email: loginForm.email.value, password: loginForm.password.value})
-        .then(data => STATE = data)
+        .then(data => document.cookie = JSON.stringify(data))
         .then(() => window.location = "landing.html")
         .catch(err => console.log(err));
 		} 
@@ -21,10 +22,16 @@ $(function(){
       e.preventDefault();
 			const signupForm = document.getElementById('signupMenu');
 
+      $("body").css("cursor", "wait");
+      $(e.target).css("cursor", "wait");
       lib.lasfter.db.signup({email: signupForm.email.value, password: signupForm.password.value})
-        .then(data => STATE = data)
+        .then(data => document.cookie = JSON.stringify(data))
         .then(() => window.location = "landing.html")
-        .catch(err => console.log(err));
+        .catch(err => {
+          $("body").css("cursor", "default");
+          $(e.target).css("cursor", "default");
+          console.log(err);
+        });
 		} 
 	}
 

@@ -78,17 +78,18 @@ var qrCodeReader = _interopRequireWildcard(__webpack_require__(3));
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
-var STATE = {};
 $(function () {
   if ($('body').hasClass('loginPage')) {
     loginButton.onclick = function (e) {
       e.preventDefault();
       var loginForm = document.getElementById('loginMenu');
+      $("body").css("cursor", "wait");
+      $(e.target).css("cursor", "wait");
       lib.lasfter.db.login({
         email: loginForm.email.value,
         password: loginForm.password.value
       }).then(function (data) {
-        return STATE = data;
+        return document.cookie = JSON.stringify(data);
       }).then(function () {
         return window.location = "landing.html";
       }).catch(function (err) {
@@ -101,15 +102,19 @@ $(function () {
     signupButton.onclick = function (e) {
       e.preventDefault();
       var signupForm = document.getElementById('signupMenu');
+      $("body").css("cursor", "wait");
+      $(e.target).css("cursor", "wait");
       lib.lasfter.db.signup({
         email: signupForm.email.value,
         password: signupForm.password.value
       }).then(function (data) {
-        return STATE = data;
+        return document.cookie = JSON.stringify(data);
       }).then(function () {
         return window.location = "landing.html";
       }).catch(function (err) {
-        return console.log(err);
+        $("body").css("cursor", "default");
+        $(e.target).css("cursor", "default");
+        console.log(err);
       });
     };
   } // reloadUserData for events page
