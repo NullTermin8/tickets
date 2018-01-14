@@ -18,20 +18,59 @@
 	<!-- Nav column will in some way (ideally dynamically) allow for 
 	switching of event view between multiple functions available for
 	participants -->
-	<ul class="nav flex-column">
+	<!-- <ul class="nav flex-column">
 		  <li class="nav-item">
-			<a class="nav-link active" href="#">EVENT INFO ICON</a>
+			<button type="button" class="btn btn-warning" id="btn1" data-target="info">EVENT INFO ICON</a>
 		  </li>
 		  <li class="nav-item">
-			<a class="nav-link" href="#">BALANCE ICON $</a>
+			<button type="button" class="btn btn-warning" id="btn2" data-target="balance">BALANCE ICON $</a>
 		  </li>
 		  <li class="nav-item">
-			<a class="nav-link" href="#">QR SCAN ICON</a>
+			<button type="button" class="btn btn-warning" id="btn3" data-target="scan">QR SCAN ICON</a>
 		  </li>
 		  <li class="nav-item">
-			<a class="nav-link disabled" href="#">TRANSFER ICON</a>
+			<button type="button" class="btn btn-warning" id="btn4" data-target="transfer">TRANSFER ICON</a>
 		  </li>
-	</ul>
+	</ul> -->
+
+	<div class="row">
+	  <div class="col-4">
+		<div class="list-group" id="list-tab" role="tablist">
+		  <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Event Info</a>
+		  <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Balance</a>
+		  <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">QR Scan</a>
+		  <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Transfer</a>
+		</div>
+	  </div>
+	  <div class="col-8">
+		<div class="tab-content" id="nav-tabContent">
+		  <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...</div>
+		  <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
+		  <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+		  <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+		</div>
+	  </div>
+	</div>
+
+	<!-- <div id="content" class="col-sm-9">
+		<div id="info">
+		    <p>EVENT INFO</p>
+		    <h4>my name is A..........</h4>
+		</div>
+		<div id="balance">
+		    <p>CHECK BALANCE</p>
+		    <h4>my name is A..........</h4>
+		</div>
+		<div id="scan">
+		    <p>SCAN QR CODE</p>
+		    <h4>my name is A..........</h4>
+		</div>
+		<div id="transfer">
+		    <p>TRANSFER MONEY</p>
+		    <h4>my name is A..........</h4>
+		</div>
+	</div>-->
+
 	
 	<div class="footer text-center fixed-bottom">
 		<p>Made by <a href="https://github.com/NullTermin8">Null Termin8</a> at <a href="https://www.nwhacks.io/">NWHacks 2018</a></p>
@@ -42,4 +81,17 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 	<!-- tickets backend -->	
 	<script src = "../dist/bundle.js"></script>
+	<!--<script> 
+		const buttons = $('.btn');
+		buttons.forEach(e => e.hide());
+		buttons[0].show();
+		$('.btn').click(function() 
+		{
+			$('#content div').hide();
+			var target = '#' + $(this).data('target');
+			$(target).show();
+		})
+	</script>-->
+
+
 </body>
