@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/NullTermin8/tickets#readme",
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.37",
+    "@babel/preset-env": "^7.0.0-beta.37",
+    "babel-loader": "^8.0.0-beta.0",
     "webpack": "^3.10.0"
   }
 }
