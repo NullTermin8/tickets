@@ -40,8 +40,22 @@ $(function(){
 		} 
 	}
 
+  $('#eventCreateForm button').click(function() {
+    const form = $('#eventCreateForm');
+    lib.lasfter.db.organize({token: JSON.parse(document.cookie).token, event_name: form.inputName.value})
+      .then(data => document.cookie = JSON.stringify(data))
+      .then(() => window.location = "landing.html")
+      .catch(err => {
+        $("body").css("cursor", "default");
+        $(e.target).css("cursor", "default");
+        console.log(err);
+      });
+  });
+
 	// reloadUserData for events page
 	if($('body').hasClass('landing')){
 		// call reloadUserData
 	}
+
+
 });
