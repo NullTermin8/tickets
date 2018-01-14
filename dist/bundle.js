@@ -67,17 +67,18 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-var STATE = {};
 $(function () {
   if ($('body').hasClass('loginPage')) {
     loginButton.onclick = function (e) {
       e.preventDefault();
       var loginForm = document.getElementById('loginMenu');
-      lib.lasfter.db['@dev'].login({
+      $("body").css("cursor", "wait");
+      $(e.target).css("cursor", "wait");
+      lib.lasfter.db.login({
         email: loginForm.email.value,
         password: loginForm.password.value
       }).then(function (data) {
-        return STATE = data;
+        return document.cookie = JSON.stringify(data);
       }).then(function () {
         return window.location = "landing.html";
       }).catch(function (err) {
@@ -90,17 +91,25 @@ $(function () {
     signupButton.onclick = function (e) {
       e.preventDefault();
       var signupForm = document.getElementById('signupMenu');
-      lib.lasfter.db['@dev'].signup({
+      $("body").css("cursor", "wait");
+      $(e.target).css("cursor", "wait");
+      lib.lasfter.db.signup({
         email: signupForm.email.value,
         password: signupForm.password.value
       }).then(function (data) {
-        return STATE = data;
+        return document.cookie = JSON.stringify(data);
       }).then(function () {
         return window.location = "login.html";
       }).catch(function (err) {
-        return console.log(err);
+        $("body").css("cursor", "default");
+        $(e.target).css("cursor", "default");
+        console.log(err);
       });
     };
+  } // reloadUserData for events page
+
+
+  if ($('body').hasClass('landing')) {// call reloadUserData
   }
 });
 
