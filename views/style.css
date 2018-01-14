@@ -1,3 +1,12 @@
 body {
-  background-color: #A6D0DB;
+  /* background-color: #A6D0DB; */
+}
+
+.homebuttons {
+  width: 49%;
+  height: 50px;
+}
+
+.indexFooter {
+  margin-top: 20px;
 }
