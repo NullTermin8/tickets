@@ -67,14 +67,20 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-var loginMenu = document.getElementById('loginMenu');
-loginForm = new FormData(loginMenu);
+$(function () {
+  if ($('body').is('.loginPage')) {
+    console.log("hello");
+    var loginMenu = document.getElementById('loginMenu');
+    loginForm = new FormData(loginMenu);
 
-loginButton.onclick = function () {
-  loginForm.append(loginMenu); // console.log(loginMenu);
+    loginButton.onclick = function () {
+      loginForm.append(loginMenu); // console.log(loginMenu);
 
-  console.log(loginForm);
-};
+      console.log(loginForm);
+    }; //call specific functions
+
+  }
+});
 
 /***/ })
 /******/ ]);
